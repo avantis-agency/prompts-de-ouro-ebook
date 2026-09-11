@@ -9,59 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #050505;
-            --text: #f0f0f0;
-            --accent: #333;
+            --bg: #050505; --text: #f0f0f0; --accent: #333;
             --glow: radial-gradient(circle at top left, rgba(60,60,60,0.6), transparent 50%);
         }
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg);
-            background-image: var(--glow);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            cursor: none;
-        }
-        .cursor-dot {
-            width: 8px; height: 8px; background: white; border-radius: 50%;
-            position: fixed; pointer-events: none; z-index: 9999;
-            transform: translate(-50%, -50%); mix-blend-mode: difference;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: clamp(2rem, 5vw, 6rem) 2rem;
-        }
+        body { margin: 0; padding: 0; background-color: var(--bg); background-image: var(--glow); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; cursor: none; }
+        .cursor-dot { width: 8px; height: 8px; background: white; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); mix-blend-mode: difference; }
+        .container { max-width: 800px; margin: 0 auto; padding: clamp(2rem, 5vw, 6rem) 2rem; }
         h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 300; letter-spacing: -0.02em; }
         h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 0.2em; line-height: 1.1; }
         h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); border-bottom: 1px solid var(--accent); padding-bottom: 1rem; margin-top: 4rem;}
         h3 { font-size: 1.5rem; color: #ccc; margin-top: 3rem;}
         p { font-size: 1.1rem; color: #a0a0a0; font-weight: 300;}
-        
-        .prompt-box {
-            background: #111;
-            border: 1px solid #222;
-            padding: 2.5rem 2rem 2rem 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            font-family: 'Inter', monospace;
-            font-size: 0.95rem;
-            color: #d0d0d0;
-            position: relative;
-        }
-        .prompt-box::before {
-            content: "COPIAR SCRIPT [SQUAD ENGINE]";
-            position: absolute;
-            top: -12px;
-            left: 20px;
-            background: #050505;
-            padding: 0 10px;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            color: #888;
-        }
+        .prompt-box { background: #111; border: 1px solid #222; padding: 2.5rem 2rem 2rem 2rem; border-radius: 8px; margin: 2rem 0; font-family: 'Inter', monospace; font-size: 0.95rem; color: #d0d0d0; position: relative; }
+        .prompt-box::before { content: "COPIAR SCRIPT [SQUAD ENGINE]"; position: absolute; top: -12px; left: 20px; background: #050505; padding: 0 10px; font-size: 0.7rem; letter-spacing: 2px; color: #888; }
         .cover { height: 75vh; display: flex; flex-direction: column; justify-content: center; }
         .tag { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: #777; margin-bottom: 1rem; }
     </style>
@@ -71,59 +31,70 @@
     <div class="container">
         <div class="cover">
             <div class="tag">Bônus Exclusivo</div>
-            <h1>Prompts de Ouro:<br>Design & Cores.</h1>
-            <p style="font-size: 1.5rem; max-width: 600px;">Os scripts exatos para forçar a IA a agir como o Squad 'Proposta-Magnética' e gerar orçamentos interativos nível Awwwards.</p>
+            <h1>Prompts de Ouro:<br>Awwwards Engine.</h1>
+            <p style="font-size: 1.5rem; max-width: 600px;">14 Scripts de orquestração para forçar a IA a gerar orçamentos interativos e estáticos, prontos para subir no Surge.sh ou GitHub Pages.</p>
         </div>
 
-        <h2>O Segredo da Orquestração</h2>
-        <p>A inteligência não está em pedir um código, mas sim em invocar a "mente" certa da IA. Ao usar esses prompts, você aciona o comportamento do <strong>Squad Proposta-Magnética</strong> (ou <strong>Fábrica-Landing-Pages</strong>), que possui o DNA do design brutalista.</p>
+        <h2>Fundação & Infraestrutura</h2>
 
         <h3>Prompt 1: A Invocação do Squad & Chassi Visual</h3>
-        <p>Esse é o comando raiz. Ele trava o cérebro da IA na estética correta e conecta as tipografias de luxo.</p>
-        <div class="prompt-box">
-            "A partir de agora, assuma a mente e a autoridade do agente 'Diretor de Design' do squad 'proposta-magnetica'. Sua missão é gerar o HTML/CSS de uma proposta comercial.<br><br>
-            A fundação visual deve seguir ESTRITAMENTE estas conexões de design:<br>
-            1. Fundo dark brutalista (ex: #050505) com radial-gradients sutis nos cantos.<br>
-            2. Tipografia Híbrida: Use Google Font 'Fraunces' (Serif) exclusiva para os títulos (H1, H2) e 'Inter' (Sans-Serif) para o corpo.<br>
-            3. Layout fluido usando CSS clamp() — NUNCA use media queries fixas para font-size.<br>
-            4. Esconda o ponteiro do mouse padrão e injete um .cursor-dot interativo."
-        </div>
+        <p>O comando raiz. Trava a mente da IA na estética correta e conecta as tipografias de luxo.</p>
+        <div class="prompt-box">"A partir de agora, assuma a mente e a autoridade do agente 'Diretor de Design' do squad 'proposta-magnetica'. Sua missão é gerar o HTML/CSS de uma proposta comercial.<br><br>A fundação visual deve seguir ESTRITAMENTE estas conexões de design:<br>1. Fundo dark brutalista (#050505) com radial-gradients sutis.<br>2. Tipografia Híbrida: Google Font 'Fraunces' (Serif) exclusiva para os títulos e 'Inter' (Sans-Serif) para o corpo.<br>3. Layout fluido usando CSS clamp().<br>4. Esconda o ponteiro do mouse padrão e injete um .cursor-dot interativo."</div>
 
-        <h3>Prompt 2: Engenharia de Cores (O Sistema OKLCH)</h3>
-        <p>O segredo para cores que se casam perfeitamente. Nunca deixe a IA adivinhar o hexadecimal.</p>
-        <div class="prompt-box">
-            "Atuando como o Diretor de Design do squad, vamos definir a paleta de cores. A cor primária da marca do meu cliente é [INSERIR COR, ex: #FF4500].<br><br>
-            Esqueça o sistema RGB padrão. Converta essa cor e gere uma paleta matemática utilizando o sistema OKLCH.<br>
-            - Crie 3 tons neutros (1 escuro para fundo, 1 médio para bordas, 1 claro translúcido para textos).<br>
-            - Crie 1 cor de destaque (Accent) baseada na cor primária com alta saturação para os botões e CTAs.<br>
-            Gere as variáveis CSS Custom Properties no escopo :root para que todas as cores conversem entre si."
-        </div>
+        <h3>Prompt 2: Restrição de Deploy (Surge.sh / GitPages)</h3>
+        <p>Garante que a IA não invente servidores Node.js ou código impossível de hospedar grátis.</p>
+        <div class="prompt-box">"Atenção para a infraestrutura de deploy: Esta proposta comercial será hospedada estaticamente usando o Surge.sh (ou GitHub Pages). Portanto, é ESTRITAMENTE PROIBIDO usar bundlers (Webpack/Vite), React, Next.js ou qualquer linguagem de backend.<br><br>Entregue apenas arquivos 'index.html', 'styles.css' e 'script.js' (ou um single-file HTML). Qualquer dependência externa (como fontes ou bibliotecas de animação) deve ser importada obrigatoriamente via CDN (tag script ou link)."</div>
 
-        <h3>Prompt 3: A Tabela de Orçamento Magnética</h3>
-        <p>Transforma o preço de uma "despesa" em um item de prateleira de luxo.</p>
-        <div class="prompt-box">
-            "Agora invoque a mente do agente 'Engenheiro Front-End' do squad. Precisamos codar a seção de Orçamento.<br><br>
-            Crie um CSS Grid assimétrico (ex: 2fr 1fr). O lado esquerdo terá os itens do escopo, e o lado direito terá os valores em destaque.<br>
-            Regras de Interação e Cores:<br>
-            - Use a paleta OKLCH que geramos. O fundo da tabela deve ser um vidro translúcido (Glassmorphism sutil).<br>
-            - Adicione um efeito de hover magnético nos preços: quando o mouse (.cursor-dot) passar por cima, faça o card ganhar escala e injete um sutil 'box-shadow' usando a cor de destaque (Accent).<br>
-            - O contraste deve atender aos padrões APCA, garantindo que o valor financeiro brilhe na tela."
-        </div>
+        <h3>Prompt 3: Engenharia de Cores (O Sistema OKLCH)</h3>
+        <div class="prompt-box">"Atuando como o Diretor de Design, vamos definir a paleta de cores. A cor primária do meu cliente é [INSERIR COR, ex: #FF4500].<br><br>Esqueça o sistema RGB padrão. Converta essa cor e gere uma paleta matemática utilizando o sistema OKLCH.<br>- Crie 3 tons neutros (escuro para fundo, médio para bordas, claro para textos).<br>- Crie 1 cor de destaque (Accent) baseada na cor primária com alta saturação para os CTAs.<br>Gere as variáveis CSS Custom Properties no escopo :root."</div>
 
-        <h3>Prompt 4: Scroll-Driven Motion (Efeito Cinematográfico)</h3>
-        <p>O que faz o cliente dizer "WOW". Revele o conteúdo conforme ele rola a página, sem JavaScript pesado.</p>
-        <div class="prompt-box">
-            "Para finalizar, atue como o Animador do squad. Queremos um efeito de revelação ao scrollar a página para a Metodologia e os Preços.<br><br>
-            Restrição Técnica Obrigatória: Não use bibliotecas (GSAP, Lenis) ou JavaScript. Use puramente CSS Nativo com '@supports (animation-timeline: view())'.<br>
-            As seções devem começar com 'opacity: 0' e 'transform: translateY(40px)', e revelar gradativamente enquanto entram na viewport, garantindo um fluxo cinematográfico e leve."
-        </div>
+        <h2>Layouts & Componentes</h2>
+
+        <h3>Prompt 4: O Grid "Bento Box" de Serviços</h3>
+        <p>Acaba com a lista de bullets feia e transforma os serviços em um mosaico premium.</p>
+        <div class="prompt-box">"Crie a seção 'O Escopo'. Ao invés de uma lista chata, construa um layout estilo 'Bento Box' usando CSS Grid nativo.<br><br>Regras:<br>1. Os cards devem ter tamanhos assimétricos (ex: um card ocupando duas colunas, outros ocupando uma).<br>2. Aplique um efeito 'Glassmorphism' em cada card: fundo translúcido (rgba), backdrop-filter: blur(12px) e uma borda de 1px sólida com 10% de opacidade.<br>3. O conteúdo interno deve ter respiro gigante (padding de 2rem)."</div>
+
+        <h3>Prompt 5: A Tabela de Orçamento Magnética</h3>
+        <div class="prompt-box">"Agora invoque a mente do 'Engenheiro Front-End' do squad. Precisamos codar a seção de Orçamento.<br><br>Crie um CSS Grid assimétrico (2fr 1fr). O lado esquerdo terá os itens, e o direito os valores.<br>Regras de Interação:<br>- Use a paleta OKLCH que geramos.<br>- Efeito de hover magnético nos preços: quando o mouse (.cursor-dot) passar por cima, faça o card ganhar escala e injete um sutil 'box-shadow' usando a cor Accent.<br>- O contraste deve atender aos padrões APCA."</div>
+
+        <h3>Prompt 6: Ticker Tape Infinito (Marquee)</h3>
+        <p>A famosa faixa de texto correndo pela tela, marca registrada de sites Awwwards.</p>
+        <div class="prompt-box">"Adicione uma quebra visual entre a Metodologia e o Orçamento criando um 'Infinite Marquee' (Ticker Tape).<br><br>Regras:<br>1. Uma faixa de ponta a ponta na tela, com a cor Accent de fundo e texto na cor Dark.<br>2. O texto será '[DIGITE SUA PALAVRA, EX: EXCLUSIVIDADE • LUXO • RESULTADO]'.<br>3. Use CSS Keyframes (transform: translateX) para fazer o texto rolar da direita para a esquerda infinitamente, sem quebras ou travamentos. Não use JavaScript para isso."</div>
+
+        <h3>Prompt 7: O Menu Mobile Fullscreen (Dark Overlay)</h3>
+        <div class="prompt-box">"Construa a navegação mobile. É proibido usar o dropdown padrão do Bootstrap.<br><br>Quando o cliente clicar no 'Menu' (Hamburger), a tela inteira deve ser coberta por um overlay escuro (backdrop-filter pesado) abrindo com uma transição suave. Os links de navegação devem aparecer em tipografia gigante (Fraunces), centralizados na tela. O botão de fechar deve ser minimalista e elegante no canto superior direito."</div>
+
+        <h2>Micro-Interações e Motion</h2>
+
+        <h3>Prompt 8: Scroll-Driven Motion (Nativo)</h3>
+        <div class="prompt-box">"Atue como o Animador do squad. Queremos um efeito de revelação ao scrollar a página para a Metodologia e os Preços.<br><br>Restrição Técnica: Não use bibliotecas (GSAP, Lenis) ou JS. Use puramente CSS Nativo com '@supports (animation-timeline: view())'.<br>As caixas devem começar com 'opacity: 0' e 'transform: translateY(40px)', e revelar gradativamente enquanto entram na viewport do cliente."</div>
+
+        <h3>Prompt 9: O Cursor Interativo nos Botões</h3>
+        <p>Faz a "bolinha" do mouse engolir os links.</p>
+        <div class="prompt-box">"Melhore a interação do nosso '.cursor-dot'. Adicione um script JS leve que escute os eventos de 'mouseenter' e 'mouseleave' em todos os botões e links ('a', 'button').<br><br>Quando o mouse passar sobre um link, o .cursor-dot deve aumentar de tamanho (scale 3) e sua cor deve ficar semi-transparente (ou inverter as cores do fundo). Isso dará a sensação de um hover magnético de alto padrão."</div>
+
+        <h3>Prompt 10: Texto de Revelação (Text Reveal)</h3>
+        <p>Para o título gigante da Hero section nascer na tela.</p>
+        <div class="prompt-box">"Aplique um 'Text Reveal Animation' apenas na Headline (H1) da primeira dobra.<br><br>Separe o H1 usando tags span com 'overflow: hidden'. O texto interno deve sofrer um 'transform: translateY(100%)' inicial. Ao carregar a página, as palavras devem deslizar de baixo para cima sequencialmente (stagger), durando cerca de 1 segundo e usando um 'cubic-bezier' suave. Forneça o CSS para isso."</div>
+
+        <h2>Finalização e Limpeza</h2>
+
+        <h3>Prompt 11: O Preloader Minimalista</h3>
+        <div class="prompt-box">"Como essa proposta será enviada para clientes High-Ticket, crie uma tela de Loading (Preloader) que dura exatamente 1.5 segundos antes de mostrar o site.<br><br>A tela deve ser totalmente preta. No centro, mostre uma contagem de 0% a 100% carregando, usando a fonte Fraunces fina. Ao atingir 100%, o preloader deve deslizar para cima (transform: translateY(-100%)), revelando o site brutalista embaixo."</div>
+
+        <h3>Prompt 12: O Footer "Manifesto"</h3>
+        <div class="prompt-box">"Esqueça rodapés tradicionais com copyright miúdo. Crie um Footer 'Manifesto' ocupando 100vh da tela no final.<br><br>Regras:<br>1. Uma frase final de impacto em tamanho Colossal (clamp(4rem, 15vw, 12rem)), cortando as bordas se necessário.<br>2. Abaixo dela, um botão gigante para o cliente clicar e aceitar a proposta (acionando o link do WhatsApp).<br>3. Um botão secundário de 'Baixar PDF da Proposta', usando window.print()."</div>
+
+        <h3>Prompt 13: O Refinamento de Tipografia (Anti-Bootstrap)</h3>
+        <div class="prompt-box">"O design está ficando com cara de template genérico. Reajuste as regras de tipografia:<br><br>1. Remova todos os 'text-align: center'. O brutalismo exige alinhamentos secos à esquerda.<br>2. Aumente drasticamente o tamanho do H1 para 'clamp(3rem, 10vw, 8rem)'.<br>3. Aumente o letter-spacing nas sub-tags.<br>4. Garanta que a fonte serifada (Fraunces) esteja sendo aplicada com font-weight 300."</div>
+
+        <h3>Prompt 14: O Filtro Anti-Slop de Código</h3>
+        <div class="prompt-box">"Atue como Editor Sênior. Releia todo o código gerado e remova:<br>- CSS não utilizado.<br>- Tags divs desnecessárias (div soup).<br>- Sombras pesadas (box-shadow) feias. Troque todas por sombras hiper-sutis rgba(0,0,0,0.05).<br>- Confirme se não há requisições de backend que quebrariam ao hospedar em arquivos estáticos (Surge.sh)."</div>
+
     </div>
     <script>
         const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
+        document.addEventListener('mousemove', (e) => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
     </script>
 </body>
 </html>
