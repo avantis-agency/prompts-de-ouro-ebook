@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompts de Ouro: Engenharia de Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --text: #f0f0f0;
+            --accent: #333;
+            --glow: radial-gradient(circle at top left, rgba(60,60,60,0.6), transparent 50%);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            background-image: var(--glow);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            cursor: none;
+        }
+        .cursor-dot {
+            width: 8px; height: 8px; background: white; border-radius: 50%;
+            position: fixed; pointer-events: none; z-index: 9999;
+            transform: translate(-50%, -50%); mix-blend-mode: difference;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: clamp(2rem, 5vw, 6rem) 2rem;
+        }
+        h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 300; letter-spacing: -0.02em; }
+        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 0.2em; line-height: 1.1; }
+        h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); border-bottom: 1px solid var(--accent); padding-bottom: 1rem; margin-top: 4rem;}
+        h3 { font-size: 1.5rem; color: #ccc; margin-top: 3rem;}
+        p { font-size: 1.1rem; color: #a0a0a0; font-weight: 300;}
+        
+        .prompt-box {
+            background: #111;
+            border: 1px solid #222;
+            padding: 2.5rem 2rem 2rem 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            font-family: 'Inter', monospace;
+            font-size: 0.95rem;
+            color: #d0d0d0;
+            position: relative;
+        }
+        .prompt-box::before {
+            content: "COPIAR SCRIPT [DESIGN ENGINE]";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #050505;
+            padding: 0 10px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: #888;
+        }
+        .cover { height: 75vh; display: flex; flex-direction: column; justify-content: center; }
+        .tag { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: #777; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="cursor-dot" id="cursor"></div>
+    <div class="container">
+        <div class="cover">
+            <div class="tag">Bônus Exclusivo</div>
+            <h1>Prompts de Ouro:<br>Design & Motion.</h1>
+            <p style="font-size: 1.5rem; max-width: 600px;">Os scripts exatos para forçar a Inteligência Artificial a transformar esboços chatos em propostas interativas nível Awwwards.</p>
+        </div>
+
+        <h2>O Segredo do Design Agêntico</h2>
+        <p>A maior dificuldade de quem compra a Proposta Magnética é abrir o ChatGPT/Claude e pedir "Crie um design bonito". A IA sempre vai cuspir um layout branco com cara de Bootstrap de 2015. Para extrair a estética Dark Brutalism, você precisa hackear os parâmetros visuais da IA. Use os prompts abaixo.</p>
+
+        <h3>Prompt 1: O Chassi Awwwards (Fundação)</h3>
+        <p>Esse é o comando que você roda logo no início para travar o cérebro da IA na estética correta.</p>
+        <div class="prompt-box">
+            "Atue como um Desenvolvedor Front-End de Elite de um estúdio premiado no Awwwards. Eu vou te passar o esboço de uma proposta comercial e você vai codar uma página HTML single-file para ela.<br><br>
+            A fundação visual (O Chassi) deve seguir ESTRITAMENTE estas regras:<br>
+            1. Fundo dark brutalista (ex: #050505) com radial-gradients sutis nos cantos.<br>
+            2. Tipografia Híbrida: Google Font 'Fraunces' para os títulos (H1, H2) e 'Inter' para o corpo do texto.<br>
+            3. Sem breakpoints fixos: Use CSS clamp() para toda a tipografia.<br>
+            4. Esconda o cursor do mouse padrão e crie um .cursor-dot invertido.<br><br>
+            Inicie gerando o HTML/CSS base do esqueleto da página seguindo essa estética."
+        </div>
+
+        <h3>Prompt 2: A Tabela de Orçamento Interativa</h3>
+        <p>O momento de ancorar o preço. Transforma uma tabela de PDF morta em uma precificação de luxo.</p>
+        <div class="prompt-box">
+            "Agora vamos criar a seção de Orçamento/Escopo. Esqueça tabelas tradicionais e chatas.<br><br>
+            Crie um CSS Grid assimétrico (ex: 2fr 1fr). O lado esquerdo terá os itens do escopo, e o lado direito terá os valores em destaque.<br>
+            Regras de Interação:<br>
+            - Adicione um efeito de hover magnético (leve ganho de escala e brilho na borda) quando o mouse passar por cima da caixa de preço.<br>
+            - Use a cor branca brilhante para os valores, e um cinza translúcido para as descrições.<br>
+            O objetivo é fazer o preço parecer um item de luxo dentro de um card de vidro escuro."
+        </div>
+
+        <h3>Prompt 3: Scroll-Driven Motion (Efeito Cinematográfico)</h3>
+        <p>O que faz o cliente dizer "WOW". Revele o conteúdo conforme ele rola a página, sem usar JavaScript pesado.</p>
+        <div class="prompt-box">
+            "Para as seções de 'Nossa Metodologia' e 'Estudo de Caso', quero um efeito de revelação ao scrollar a página.<br><br>
+            Restrição Técnica Obrigatória: Não use bibliotecas como GSAP, Lenis ou JavaScript para isso. Use puramente CSS Nativo com '@supports (animation-timeline: view())'.<br><br>
+            A animação deve ser sutil: as caixas de conteúdo devem começar com 'opacity: 0' e 'transform: translateY(40px)', e revelar gradativamente enquanto entram na viewport do cliente. Crie esse bloco de CSS e aplique nas seções."
+        </div>
+
+        <h3>Prompt 4: O Refinamento de Tipografia (Anti-Bootstrap)</h3>
+        <p>Quando a IA insiste em alinhar tudo ao centro e usar fontes genéricas, solte esse comando.</p>
+        <div class="prompt-box">
+            "O design está ficando com cara de template genérico. Pare e reajuste as regras de tipografia:<br><br>
+            1. Remova todos os 'text-align: center'. O design brutalista exige alinhamentos secos à esquerda.<br>
+            2. Aumente drasticamente o tamanho do H1 (use clamp(3rem, 10vw, 8rem)). O título tem que gritar na tela.<br>
+            3. Aumente o tracking (letter-spacing) nas tags (subtítulos menores em caps lock).<br>
+            4. Garanta que a fonte serifada (Fraunces) esteja sendo aplicada com font-weight 300 (bem fina e elegante)."
+        </div>
+    </div>
+    <script>
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    </script>
+</body>
+</html>
