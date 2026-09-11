@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-book: Prompts de Ouro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --text: #f0f0f0;
+            --accent: #333;
+            --glow: radial-gradient(circle at top right, rgba(40,40,40,0.8), transparent 40%);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            background-image: var(--glow);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            cursor: none; /* Custom cursor */
+        }
+        .cursor-dot {
+            width: 8px; height: 8px; background: white; border-radius: 50%;
+            position: fixed; pointer-events: none; z-index: 9999;
+            transform: translate(-50%, -50%); mix-blend-mode: difference;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: clamp(2rem, 5vw, 6rem) 2rem;
+        }
+        h1, h2, h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+        h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            margin-bottom: 0.2em;
+            line-height: 1.1;
+        }
+        h2 { font-size: clamp(2rem, 5vw, 3rem); border-bottom: 1px solid var(--accent); padding-bottom: 1rem; margin-top: 4rem;}
+        h3 { font-size: 1.5rem; color: #ccc; margin-top: 3rem;}
+        p { font-size: 1.1rem; color: #a0a0a0; font-weight: 300;}
+        
+        .prompt-box {
+            background: #111;
+            border: 1px solid #222;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            font-family: 'Inter', monospace;
+            font-size: 0.95rem;
+            color: #d0d0d0;
+            position: relative;
+        }
+        .prompt-box::before {
+            content: "COPIAR SCRIPT";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #050505;
+            padding: 0 10px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: #666;
+        }
+        .cover {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .tag {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor-dot" id="cursor"></div>
+    <div class="container">
+        <div class="cover">
+            <div class="tag">Bônus Exclusivo</div>
+            <h1>Prompts<br>de Ouro.</h1>
+            <p style="font-size: 1.5rem; max-width: 500px;">A engenharia reversa para gerar copy nível Awwwards sem sofrer da síndrome da folha em branco.</p>
+        </div>
+
+        <h2>Capítulo 3: O Arsenal</h2>
+        <p>Você já entendeu a teoria. O que separa uma agência que cobra R$ 5.000 de um freelancer de R$ 500 é a precisão da comunicação. Copie os scripts abaixo, preencha as variáveis [ ] e aperte Enter.</p>
+
+        <h3>Prompt 1: A Promessa (Hero)</h3>
+        <p>A dobra principal do site. Queremos agressividade e especificidade.</p>
+        <div class="prompt-box">
+            "Atue como um Copywriter de Resposta Direta focado no mercado B2B de alto padrão. Meu cliente vende [SERVIÇO] para [PÚBLICO]. O maior problema hoje é [DOR].<br><br>
+            Escreva a seção 'Hero' (Dobra 1) da Landing Page com:<br>
+            1. Uma Headline (H1) de até 8 palavras que ataque a dor contrariando o mercado.<br>
+            2. Uma Sub-headline (H2) de 2 linhas explicando a mecânica da entrega.<br>
+            3. Um CTA imperativo.<br><br>
+            REGRA ABSOLUTA: Não use 'alavancar', 'transformar' ou 'jornada'. Tom brutalista e sofisticado."
+        </div>
+
+        <h3>Prompt 2: A Metodologia (3 Fases)</h3>
+        <p>Processos em 3 passos geram previsibilidade e justificam o ticket alto.</p>
+        <div class="prompt-box">
+            "Atue como um Diretor de Operações de uma agência de elite. Nossa entrega de [SERVIÇO] leva [TEMPO], envolvendo [TAREFAS].<br><br>
+            Traduza essa complexidade em um método linear de apenas 3 passos voltados para o cliente.<br>
+            Para cada passo:<br>
+            - Um título curto.<br>
+            - Um parágrafo de 3 linhas focando apenas no ganho do cliente.<br><br>
+            Mantenha um tom frio, metódico e profissional."
+        </div>
+
+        <h3>Prompt 3: Ancoragem de Preço</h3>
+        <p>Fazendo seu preço parecer um investimento óbvio.</p>
+        <div class="prompt-box">
+            "Atue como um Estrategista High-Ticket. O meu serviço custa [VALOR]. A concorrência cobra mais barato, mas entrega resultados genéricos. O custo do meu cliente continuar com o problema hoje é [PREJUÍZO_MENSAL].<br><br>
+            Escreva a seção de ancoragem de preço. Objetivo: Fazer meu preço parecer um investimento ridículo comparado ao que ele perde todo mês. Use lógica matemática e seja clínico."
+        </div>
+
+        <h2>Capítulo 4: O Filtro Anti-Slop</h2>
+        <p>O comando final para limpar o texto gerado de qualquer "IAzês".</p>
+        <div class="prompt-box">
+            "Releia o texto gerado. Atue como um Editor de Linha rigoroso. Remova sumariamente:<br>
+            - 'No cenário atual'<br>
+            - 'Em suma'<br>
+            - 'Não é apenas X, mas sim Y'<br>
+            - 'Mergulhar fundo'<br>
+            - Qualquer jargão empolgado.<br><br>
+            Reescreva deixando as frases mais curtas, cortando advérbios e focando no impacto direto."
+        </div>
+    </div>
+    <script>
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    </script>
+</body>
+</html>
