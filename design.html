@@ -16,84 +16,211 @@
             --glow: radial-gradient(circle at top right, var(--accent-glow), transparent 60%),
                     radial-gradient(circle at bottom left, rgba(239, 95, 165, 0.05), transparent 50%);
         }
-        body { margin: 0; padding: 0; background-color: var(--bg); background-image: var(--glow); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; cursor: none; }
-        .cursor-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); box-shadow: 0 0 15px var(--accent); }
-        .container { max-width: 800px; margin: 0 auto; padding: clamp(2rem, 5vw, 6rem) 2rem; }
-        h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; }
-        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 0.2em; }
-        h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; margin-top: 4rem;}
-        h3 { font-size: 1.5rem; color: #fff; margin-top: 3rem;}
+        body { margin: 0; padding: 0; background-color: var(--bg); background-image: var(--glow); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: clamp(2rem, 5vw, 6rem) 2rem; }
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; font-weight: 500; letter-spacing: -0.03em; line-height: 1.2; margin: 0;}
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 0.5rem; }
         p { font-size: 1.1rem; color: #a0a0a0; font-weight: 300;}
-        .prompt-box { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 2.5rem 2rem 2rem 2rem; border-radius: 12px; margin: 2rem 0; font-family: 'Inter', monospace; font-size: 0.95rem; color: #d0d0d0; position: relative; backdrop-filter: blur(10px); }
-        .prompt-box::before { content: "COPIAR SCRIPT [SQUAD ENGINE]"; position: absolute; top: -12px; left: 20px; background: #030B08; padding: 0 10px; font-size: 0.7rem; letter-spacing: 2px; color: var(--accent); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px;}
-        .cover { height: 75vh; display: flex; flex-direction: column; justify-content: center; position: relative;}
-        .tag { display: inline-block; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; color: var(--accent); background: rgba(239, 95, 165, 0.1); padding: 6px 12px; border-radius: 100px; border: 1px solid rgba(239, 95, 165, 0.2); margin-bottom: 1.5rem; width: max-content;}
+        
+        .cover { text-align: center; margin-bottom: 4rem; }
+        .tag { display: inline-block; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; color: var(--accent); background: rgba(239, 95, 165, 0.1); padding: 6px 12px; border-radius: 100px; border: 1px solid rgba(239, 95, 165, 0.2); margin-bottom: 1rem; }
+        
+        /* Tabs System */
+        .tabs { display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; overflow-x: auto;}
+        .tab-btn { background: transparent; color: #888; border: none; font-family: 'Outfit', sans-serif; font-size: 1.1rem; cursor: pointer; padding: 0.5rem 1rem; transition: all 0.3s ease; white-space: nowrap;}
+        .tab-btn:hover { color: #fff; }
+        .tab-btn.active { color: var(--accent); border-bottom: 2px solid var(--accent); font-weight: 700;}
+        
+        .tab-content { display: none; animation: fadeIn 0.4s ease forwards;}
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Accordions */
+        details { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; backdrop-filter: blur(10px); transition: all 0.3s;}
+        details[open] { border-color: rgba(239, 95, 165, 0.3); background: rgba(255,255,255,0.04);}
+        summary { padding: 1.5rem; font-family: 'Outfit', sans-serif; font-size: 1.2rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;}
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; color: var(--accent); font-size: 1.5rem; font-weight: 300;}
+        details[open] summary::after { content: '-'; }
+
+        /* Inside Accordion (Grid) */
+        .prompt-layout { display: grid; grid-template-columns: 1fr 300px; gap: 2rem; padding: 0 1.5rem 1.5rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 1rem; padding-top: 1.5rem;}
+        @media (max-width: 768px) { .prompt-layout { grid-template-columns: 1fr; } }
+        
+        .prompt-box { background: #030B08; padding: 1.5rem; border-radius: 8px; font-family: 'Inter', monospace; font-size: 0.95rem; color: #d0d0d0; border: 1px solid rgba(239, 95, 165, 0.2); line-height: 1.5;}
+        
+        /* Helper Balloon / Sidebar */
+        .helper-card { background: rgba(239, 95, 165, 0.05); border: 1px solid rgba(239, 95, 165, 0.2); padding: 1.5rem; border-radius: 8px; height: fit-content;}
+        .helper-card h4 { color: var(--accent); margin-bottom: 1rem; font-size: 1rem;}
+        .helper-card ul { padding-left: 1.2rem; margin: 0; color: #ccc; font-size: 0.9rem;}
+        .helper-card li { margin-bottom: 0.8rem; }
+        .highlight { color: #fff; font-weight: 600; background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; font-size: 0.8rem;}
     </style>
 </head>
 <body>
-    <div class="cursor-dot" id="cursor"></div>
     <div class="container">
         <div class="cover">
-            <div class="tag">Bônus Exclusivo</div>
-            <h1>Prompts de Ouro:<br>Awwwards Engine.</h1>
-            <p style="font-size: 1.5rem; max-width: 600px;">14 Scripts de orquestração para forçar a IA a gerar orçamentos estáticos no padrão Dark SaaS (prontos para Surge.sh).</p>
+            <div class="tag">Proposta Magnética</div>
+            <h1>Os Prompts de Ouro</h1>
+            <p>Copie e cole os roteiros abaixo na IA para gerar orçamentos interativos e profissionais. Selecione seu momento atual nas abas abaixo.</p>
         </div>
 
-        <h2>Fundação & Infraestrutura</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('tab1')">1. Não tenho identidade visual</button>
+            <button class="tab-btn" onclick="openTab('tab2')">2. Já tenho minha marca</button>
+            <button class="tab-btn" onclick="openTab('tab3')">3. Efeitos e Animações (O Fator UAU)</button>
+        </div>
 
-        <h3>Prompt 1: A Invocação do Squad & Chassi Visual</h3>
-        <p>O comando raiz. Trava a mente da IA na estética Dark SaaS correta e conecta as tipografias.</p>
-        <div class="prompt-box">"A partir de agora, assuma a autoridade do 'Diretor de Design' do squad 'proposta-magnetica'. Sua missão é gerar o HTML/CSS de uma proposta comercial.<br><br>A fundação visual deve seguir ESTRITAMENTE estas diretrizes:<br>1. Fundo dark profundo (#030B08) com radial-gradients sutis emitindo glows rosa neon (#EF5FA5).<br>2. Tipografia 'General Sans' ou 'Outfit' (Sans-Serif geométrica) para todo o documento, com letter-spacing negativo (-0.03em) para os títulos.<br>3. Layout fluido usando CSS clamp().<br>4. Esconda o ponteiro do mouse padrão e injete um .cursor-dot interativo rosa neon."</div>
+        <!-- ABA 1: SEM IDENTIDADE -->
+        <div id="tab1" class="tab-content active">
+            
+            <details>
+                <summary>PROMPT 1: Crie minha Identidade e a Base do Site</summary>
+                <div class="prompt-layout">
+                    <div class="prompt-box">
+                        "Aja como um Web Designer especialista em Propostas Comerciais modernas. Eu preciso de uma página HTML de apresentação de serviços, mas não tenho logotipo nem cores.<br><br>
+                        Sua tarefa:<br>
+                        1. Crie uma paleta de cores elegante focada no Nicho de [MEU_NICHO]. A página deve ter fundo escuro (Dark Mode) para passar luxo.<br>
+                        2. Escolha duas fontes modernas do Google Fonts que combinem perfeitamente. Use uma para títulos e outra para textos.<br>
+                        3. Escreva o código HTML e CSS da tela inicial (Hero Section) aplicando essas cores e fontes, com um título forte e um botão de ação chamativo."
+                    </div>
+                    <div class="helper-card">
+                        <h4>💡 Dicas de Personalização</h4>
+                        <ul>
+                            <li>Substitua <span class="highlight">[MEU_NICHO]</span> por algo como "Estética Automotiva", "Clínica Odontológica", ou "Social Media".</li>
+                            <li>A IA vai automaticamente inventar cores que transmitem confiança para aquele nicho.</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
 
-        <h3>Prompt 2: Restrição de Deploy (Surge.sh / GitPages)</h3>
-        <div class="prompt-box">"Atenção para a infraestrutura de deploy: Esta proposta comercial será hospedada estaticamente usando o Surge.sh (ou GitHub Pages). É PROIBIDO usar bundlers (Webpack/Vite), React, Next.js ou backend.<br><br>Entregue apenas 'index.html', 'styles.css' e 'script.js'. Dependências de fontes e bibliotecas de estilo via CDN."</div>
+            <details>
+                <summary>PROMPT 2: A Seção de Serviços e Entregas</summary>
+                <div class="prompt-layout">
+                    <div class="prompt-box">
+                        "Continue a página anterior criando a seção 'O que entregamos'.<br><br>
+                        Não faça uma lista comum em texto. Quero um layout em formato de 'Cards' (Cartões) distribuídos em grade (Grid).<br>
+                        Cada cartão deve ter um título, uma breve descrição e manter o estilo escuro que você definiu acima. Os cartões devem ter bordas bem sutis para parecerem painéis de vidro sobre o fundo escuro."
+                    </div>
+                    <div class="helper-card">
+                        <h4>💡 Dicas de Personalização</h4>
+                        <ul>
+                            <li>Esse formato substitui os velhos "bullet points" e deixa a leitura da sua proposta muito mais leve e atrativa.</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
 
-        <h3>Prompt 3: Engenharia de Cores (O Sistema OKLCH)</h3>
-        <div class="prompt-box">"A cor primária de destaque (Accent) da nossa proposta será o Neon Magenta (#EF5FA5).<br><br>Esqueça o sistema RGB padrão. Converta essa cor e gere uma paleta matemática utilizando o sistema OKLCH.<br>- Crie tons neutros profundamente escuros para o fundo.<br>- Crie bordas sutis translúcidas (Glassmorphism).<br>- O texto deve ser branco gelo (#ffffff) para contraste máximo."</div>
+        </div>
 
-        <h2>Layouts & Componentes</h2>
+        <!-- ABA 2: COM IDENTIDADE -->
+        <div id="tab2" class="tab-content">
+            
+            <details>
+                <summary>PROMPT 1: Aplique minhas Cores e Fontes no Site</summary>
+                <div class="prompt-layout">
+                    <div class="prompt-box">
+                        "Aja como um Desenvolvedor Front-End. Vou colar o esboço da minha proposta comercial e quero que você crie a versão em página web (HTML único).<br><br>
+                        Regras Visuais Obrigatórias:<br>
+                        1. Cor de Fundo do Site: [COR_DO_FUNDO].<br>
+                        2. Cor Principal dos Botões e Destaques: [COR_DE_DESTAQUE].<br>
+                        3. Fontes do Google Fonts: Use [FONTE_TITULO] para todos os Títulos e [FONTE_TEXTO] para os parágrafos normais.<br>
+                        4. O layout deve ser responsivo e moderno. Crie o HTML/CSS da primeira dobra inteira usando essas regras."
+                    </div>
+                    <div class="helper-card">
+                        <h4>💡 Dicas de Personalização</h4>
+                        <ul>
+                            <li><span class="highlight">[COR_DO_FUNDO]</span>: Ex: Preto (#000000) ou Azul Marinho (#1A1A2E).</li>
+                            <li><span class="highlight">[COR_DE_DESTAQUE]</span>: Ex: Rosa Neon (#EF5FA5), Laranja (#FF4500) ou Dourado (#FFD700).</li>
+                            <li><span class="highlight">[FONTE_TITULO]</span>: Ex: 'Outfit', 'Montserrat' ou 'Fraunces'.</li>
+                            <li><span class="highlight">[FONTE_TEXTO]</span>: Ex: 'Inter', 'Roboto' ou 'Open Sans'.</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
 
-        <h3>Prompt 4: O Grid "Bento Box" de Serviços</h3>
-        <div class="prompt-box">"Crie a seção 'O Escopo'. Ao invés de uma lista, construa um layout 'Bento Box' usando CSS Grid nativo.<br><br>Regras:<br>1. Cards assimétricos (ex: um ocupando duas colunas, outros ocupando uma).<br>2. Efeito 'Glassmorphism': fundo escuro translúcido, backdrop-filter: blur(12px) e borda de 1px sólida translúcida.<br>3. Ícones ou detalhes em Magenta Neon (#EF5FA5)."</div>
+            <details>
+                <summary>PROMPT 2: A Tabela de Orçamento Interativa</summary>
+                <div class="prompt-layout">
+                    <div class="prompt-box">
+                        "Precisamos codificar a seção de Orçamento/Valores.<br><br>
+                        Crie um bloco de código onde o lado esquerdo tem a descrição dos serviços e o direito os preços.<br>
+                        Regra de Luxo: Quando eu passar o mouse por cima do Preço, adicione um efeito visual onde o botão cresce levemente (scale) e ganha um brilho sutil (box-shadow) na minha cor de destaque [COR_DE_DESTAQUE]."
+                    </div>
+                    <div class="helper-card">
+                        <h4>💡 Dicas de Personalização</h4>
+                        <ul>
+                            <li>Essa é a hora da ancoragem. O efeito visual de brilho no preço tira o foco de "despesa" e transforma o orçamento num produto de desejo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
 
-        <h3>Prompt 5: A Tabela de Orçamento Magnética</h3>
-        <div class="prompt-box">"Codifique a seção de Orçamento.<br><br>Crie um CSS Grid assimétrico (2fr 1fr). O lado esquerdo terá os itens, e o direito os valores.<br>Regras:<br>- Efeito de hover magnético: quando o cursor passar por cima do preço, injete um brilho sutil (box-shadow neon) usando a cor Accent.<br>- Os valores financeiros devem brilhar na tela com tipografia encorpada."</div>
+        </div>
 
-        <h3>Prompt 6: Ticker Tape Infinito (Marquee)</h3>
-        <div class="prompt-box">"Adicione uma quebra visual criando um 'Infinite Marquee'.<br><br>Regras:<br>1. Uma faixa de ponta a ponta na tela, sem fundo, com bordas magenta sutis superior e inferior.<br>2. O texto será 'HIGH-END DESIGN • DIGITAL PRESENCE • LUXURY'.<br>3. Use CSS Keyframes (transform: translateX) para animar. Não use JavaScript."</div>
+        <!-- ABA 3: EFEITOS UAU -->
+        <div id="tab3" class="tab-content">
+            
+            <details>
+                <summary>PROMPT 1: Animação ao Rolar a Página</summary>
+                <div class="prompt-layout">
+                    <div class="prompt-box">
+                        "Para a página que você gerou, quero adicionar um efeito cinematográfico de revelação.<br><br>
+                        Crie um código CSS Nativo (sem usar JavaScript) que faça os conteúdos das seções de 'Serviços' e 'Valores' aparecerem suavemente de baixo para cima apenas quando o cliente rolar (scroll) a tela até eles. Os itens devem começar invisíveis e subir suavemente conforme entram na tela."
+                    </div>
+                    <div class="helper-card">
+                        <h4>💡 Dicas de Personalização</h4>
+                        <ul>
+                            <li>Isso é o que dá a cara de site profissional e não de documento Word. Animação ao scroll retém a atenção do cliente em cada etapa da proposta.</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
 
-        <h3>Prompt 7: O Menu Mobile Fullscreen (Dark Overlay)</h3>
-        <div class="prompt-box">"Construa a navegação mobile.<br><br>Quando o cliente clicar no 'Menu', a tela inteira deve ser coberta por um overlay escuro (backdrop-filter pesado) com transição suave. Os links devem aparecer gigantes e centralizados. O hover nos links deve deixá-los com a cor magenta (#EF5FA5)."</div>
+            <details>
+                <summary>PROMPT 2: O Cursor do Mouse Customizado</summary>
+                <div class="prompt-layout">
+                    <div class="prompt-box">
+                        "Quero uma experiência moderna para o ponteiro do mouse.<br><br>
+                        Esconda o cursor do mouse padrão do Windows/Mac (cursor: none). Crie um elemento no HTML (como uma bolinha colorida) e adicione um script pequeno para que essa bolinha siga o movimento real do mouse na tela. A cor dessa bolinha deve ser a minha cor principal."
+                    </div>
+                    <div class="helper-card">
+                        <h4>💡 Dicas de Personalização</h4>
+                        <ul>
+                            <li>Agências famosas do Awwwards quase sempre usam ponteiros customizados para prender o olhar do usuário e ditar o ritmo da navegação.</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+            
+            <details>
+                <summary>PROMPT 3: Garantia e Botão do WhatsApp (Footer)</summary>
+                <div class="prompt-layout">
+                    <div class="prompt-box">
+                        "Construa o rodapé (Footer) final da apresentação.<br><br>
+                        Ele deve ocupar a tela inteira. No centro, escreva em tamanho Gigante a frase 'Apresentação sujeita a alterações'.<br>
+                        Logo abaixo, crie um grande botão de CTA piscando suavemente escrito 'Aprovar Orçamento e Iniciar'. Esse botão deve ter um link para um número de WhatsApp."
+                    </div>
+                    <div class="helper-card">
+                        <h4>💡 Dicas de Personalização</h4>
+                        <ul>
+                            <li>No final do projeto, é só a pessoa substituir o link gerado pelo link real do WhatsApp dela.</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
 
-        <h2>Micro-Interações e Motion</h2>
-
-        <h3>Prompt 8: Scroll-Driven Motion (Nativo)</h3>
-        <div class="prompt-box">"Queremos um efeito de revelação ao scrollar a página.<br><br>Restrição: Não use JavaScript. Use puramente CSS Nativo com '@supports (animation-timeline: view())'.<br>Os painéis em glassmorphism devem começar com 'opacity: 0' e 'transform: translateY(40px) scale(0.95)', e revelar gradativamente enquanto entram na viewport."</div>
-
-        <h3>Prompt 9: O Cursor Interativo nos Botões</h3>
-        <div class="prompt-box">"Melhore a interação do '.cursor-dot'. Adicione um script JS leve que escute os eventos de 'mouseenter' e 'mouseleave' nos botões e links.<br><br>Ao passar sobre um link, o .cursor-dot deve aumentar de tamanho (scale 3) e o box-shadow magenta deve ficar mais agressivo, criando um hover magnético de alto padrão."</div>
-
-        <h3>Prompt 10: Texto de Revelação (Text Reveal)</h3>
-        <div class="prompt-box">"Aplique um 'Text Reveal Animation' no H1 da Hero section.<br><br>Separe o H1 usando tags span com 'overflow: hidden'. O texto interno deve sofrer um 'transform: translateY(100%)'. Ao carregar a página, as palavras deslizam de baixo para cima sequencialmente (stagger), durando 1 segundo."</div>
-
-        <h2>Finalização e Limpeza</h2>
-
-        <h3>Prompt 11: O Preloader Minimalista</h3>
-        <div class="prompt-box">"Crie uma tela de Loading que dura 1.5 segundos antes de mostrar o site.<br><br>A tela deve ser escura (#030B08). No centro, mostre uma contagem de 0% a 100% carregando, usando a cor magenta. Ao atingir 100%, o preloader deve deslizar para cima, revelando o dashboard brutalista."</div>
-
-        <h3>Prompt 12: O Footer "Manifesto"</h3>
-        <div class="prompt-box">"Esqueça rodapés tradicionais. Crie um Footer 'Manifesto' ocupando 100vh.<br><br>Regras:<br>1. Uma frase final de impacto em tamanho Colossal (clamp(4rem, 15vw, 12rem)), com tracking negativo apertado.<br>2. Botão neon brilhante para fechar negócio.<br>3. Botão secundário de 'Baixar Proposta' (window.print())."</div>
-
-        <h3>Prompt 13: Refinamento Tipográfico</h3>
-        <div class="prompt-box">"O design precisa de refino SaaS.<br><br>1. Alinhamento seco à esquerda.<br>2. Aumente o H1 para 'clamp(3rem, 10vw, 8rem)'.<br>3. Zere o letter-spacing (0%) ou torne-o negativo (-0.03em) para os títulos ganharem um visual condensado corporativo."</div>
-
-        <h3>Prompt 14: Filtro Anti-Slop de Código</h3>
-        <div class="prompt-box">"Releia o código gerado e remova:<br>- Divs desnecessárias.<br>- Sombras cinzas pesadas. Troque todas por glows com a cor Magenta Neon em baixíssima opacidade (0.05).<br>- Confirme se não há quebras para hospedar no Surge.sh."</div>
+        </div>
 
     </div>
+
     <script>
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
+        function openTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
     </script>
 </body>
 </html>
